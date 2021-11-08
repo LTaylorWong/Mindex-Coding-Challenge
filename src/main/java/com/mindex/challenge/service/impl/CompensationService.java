@@ -25,7 +25,7 @@ public class CompensationService {
 		LOG.debug("Reading compensation of employee [{}]", employee);
 		Compensation compensation = compensationRepository.findByEmployee(employee);
 		if (compensation == null){
-			throw new RuntimeException("Invalid employee");
+			throw new RuntimeException("No Compensation for: " + employee.getEmployeeId());
 		}
 	 	return compensation;
 	}

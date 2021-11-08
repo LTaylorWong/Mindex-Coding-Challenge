@@ -84,3 +84,42 @@ Compensation from the persistence layer.
 
 ## Delivery
 Please upload your results to a publicly accessible Git repo. Free ones are provided by Github and Bitbucket.
+
+----
+#Solution Notes:
+Task 1:
+```
+* REPORTINGSTRUCTURE
+    * HTTP Method: GET 
+    * URL: localhost:8080/reportingStructure/{employee_id}
+    * RESPONSE: ReportingStructure
+```
+Task 2:
+```
+* CREATE
+    * HTTP Method: POST 
+    * URL: localhost:8080/compensation
+    * PAYLOAD: Compensation
+    * RESPONSE: Compensation
+* READ
+    * HTTP Method: GET 
+    * URL: localhost:8080/compensation/{employee_id}
+    * RESPONSE: Compensation
+```
+Compensation has a schema of:
+```json
+{
+  "type":"Compensation",
+  "properties": {
+    "employee": {
+      "type": "employee"
+    },
+    "salary": {
+      "type": "int"
+    },
+    "effectiveDate": {
+      "type": "string"
+    }
+  }
+}
+```
