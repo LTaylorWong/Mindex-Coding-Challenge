@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ReportingStructureController {
-	private static final Logger LOG = LoggerFactory.getLogger(EmployeeController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureController.class);
 
 	@Autowired
 	private EmployeeService employeeService;
