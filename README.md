@@ -89,10 +89,24 @@ Please upload your results to a publicly accessible Git repo. Free ones are prov
 # Solution Notes:
 Task 1:
 ```
-* REPORTINGSTRUCTURE
+* COMPUTE
     * HTTP Method: GET 
     * URL: localhost:8080/reportingStructure/{employee_id}
     * RESPONSE: ReportingStructure
+```
+ReportingStructure has a schema of:
+```json
+{
+  "type":"ReportingStructure",
+  "properties": {
+    "employee": {
+      "type": "employee"
+    },
+    "numberOfReports": {
+      "type": "int"
+    }
+  }
+}
 ```
 Task 2:
 ```
