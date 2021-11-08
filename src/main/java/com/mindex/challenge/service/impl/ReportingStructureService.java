@@ -8,8 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ReportingStructureService {
@@ -18,23 +17,25 @@ public class ReportingStructureService {
 	@Autowired
 	private EmployeeRepository employeeRepository;
 
+	private Set<String> reports = new HashSet<String>();
+
 	public ReportingStructure compute(Employee employee){
+		reports.clear();
 		ReportingStructure reportingStructure = new ReportingStructure();
 		List<Employee> directReports = employee.getDirectReports();
 		reportingStructure.setEmployee(employee);
-		reportingStructure.setNumberOfReports(computeReports(directReports));
+		computeReports(directReports);
+		reportingStructure.setNumberOfReports(reports.size());
 		return reportingStructure;
 	}
 
-	private int computeReports(List<Employee> directReports){
-		int reports = 0;
+	private void computeReports(List<Employee> directReports){
 		for (Employee directReport : directReports) {
-			reports += 1;
+			reports.add(directReport.getEmployeeId());
 			Employee employee = employeeRepository.findByEmployeeId(directReport.getEmployeeId());
 			if(employee.getDirectReports() != null){
-				reports += computeReports(employee.getDirectReports());
+				computeReports(employee.getDirectReports());
 			}
 		}
-		return reports;
 	}
 }
