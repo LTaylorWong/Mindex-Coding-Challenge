@@ -86,7 +86,7 @@ Compensation from the persistence layer.
 Please upload your results to a publicly accessible Git repo. Free ones are provided by Github and Bitbucket.
 
 ----
-#Solution Notes:
+# Solution Notes:
 Task 1:
 ```
 * REPORTINGSTRUCTURE
